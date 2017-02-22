@@ -1,0 +1,27 @@
+<div>
+    <header>
+        <span onclick="history.go(-1)">
+            <img src="img/back_light.svg" alt="">
+        </span>
+        Direct Reports
+    </header>
+    <div class="content">
+        <ul>
+            <li class="item" ng-repeat="x in employees | filter:{'managerName':name}">
+                <a href="?{{x.id}}#/data.html">
+                    <div class="ico">
+                        <img src="{{x.pic}}" alt="">
+                    </div>
+                    <div class="data">
+                        <p class="name">{{x.firstName}} {{x.lastName}}</p>
+                        <p class="title">{{x.title}}</p>
+                    </div>
+                    <p class="next">
+                        <img src="img/next_blue.svg" alt="">
+                    </p>
+                    <p class="reports">{{x.reports}}</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

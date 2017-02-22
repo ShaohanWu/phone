@@ -1,0 +1,25 @@
+<div>
+    <header>Employee Directory</header>
+    <div class="search">
+        <input type="text" placeholder="search" ng-model="search">
+    </div>
+    <div class="content">
+        <ul>
+            <li class="item" ng-repeat="x in employees | filter:{'firstName':search}">
+                <a href="?{{x.id}}#/data.html">
+                    <div class="ico">
+                        <img src="{{x.pic}}">
+                    </div>
+                    <div class="data">
+                        <p class="name">{{x.firstName}} {{x.lastName}}</p>
+                        <p class="title">{{x.title}}</p>
+                    </div>
+                    <p class="next">
+                        <img src="img/next_blue.svg" alt="">
+                    </p>
+                    <p class="reports">{{x.reports}}</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

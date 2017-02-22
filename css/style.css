@@ -1,0 +1,143 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+html,body,#box{
+    width: 100%;
+    height: 100%;
+}
+body{
+    font-size: 16px;
+}
+#box>div{
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -moz-box;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -moz-box-orient: vertical;
+    background-color: #E5E9E8;
+}
+header{
+    height: 1.5rem;
+    border-bottom: 1px solid #000;
+    text-align: center;
+    line-height: 1.5rem;
+    font-weight: 800;
+    font-size: .4rem;
+}
+header span{
+    width: 9%;
+    position: absolute;
+    left: 5%;
+    top: 2%;
+}
+header span img{
+    width: 100%;
+}
+.search{
+    height: 1.3rem;
+    border-bottom: 1px solid #000;
+    position: relative;
+}
+.search>input{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width:85%;
+    height: .9rem;
+    border-radius: 20px;
+    background-color: #fff;
+    border: none;
+    outline: none;
+    padding-left: 15px;
+
+}
+.content{
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    overflow: scroll;
+}
+.content .item{
+    height: 1.3rem;
+    padding: 5px;
+    border-bottom: 1px solid #999;
+    list-style: none;
+}
+.content .item a{
+    color: #000;
+}
+.content .item .ico{
+    width: 20%;
+    float: left;
+    margin-right: 10px;
+}
+.content .item img{
+    width: 100%;
+}
+.content .item .data{
+    float: left;
+}
+.content p{
+    line-height: .45rem;
+}
+.content .name{
+    font-size: .4rem;
+    font-weight: 700;
+    line-height: .7rem;
+}
+.content .item .next{
+    float: right;
+    width: 10%;
+    margin-top: 5%;
+}
+.content .item .reports{
+    float: right;
+    line-height: 1.3rem;
+    color: #1B9AF7;
+}
+.content .message{
+    height: 1.6rem;
+    padding: 10px;
+    border-bottom: 1px solid #999;
+}
+.content .message .ico{
+    width: 25%;
+    float: left;
+    margin-right: 10px;
+}
+.content .message img{
+    width: 100%;
+}
+.content .data li{
+    padding: 10px;
+    position: relative;
+    border-bottom: 1px solid #bbb;
+    overflow: hidden;
+}
+a{
+    display: block;
+}
+.content .data li p:nth-child(1){
+    color: #67C2F9;
+}
+.content .data li p:nth-child(2){
+    color: #000;
+}
+.content .data li span{
+    width: 10%;
+    position: absolute;
+    top: 22%;
+    right: 5%;
+}
+.content .data li img{
+    width: 100%;
+}
+

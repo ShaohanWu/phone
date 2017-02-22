@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Title</title>
+    <script type="text/javascript" src="js/zepto.js"></script>
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/angular-route.js"></script>
+    <script type="text/javascript" src="js/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="js/rem.js"></script>
+    <script src="js/employees.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="box" ng-controller="myCtrl" ng-view></div>
+</body>
+<script type="text/javascript">
+    var app = angular.module("myApp",["ngRoute","ngSanitize"]);
+        app.controller("myCtrl",["$scope","$location",function($scope,$location){
+            $scope.employees = employees;
+            $scope.search = "";
+        }]);
+        app.config(function($routeProvider){
+           $routeProvider.when("/",{
+               templateUrl:"html/home.html",
+           }).when("/data.html",{
+               templateUrl:"html/data.html",
+               controller:"emplCtrl",
+           }).when("/reports.html",{
+               templateUrl:"html/reports.html",
+               controller:"repCtrl",
+           }).otherwise({
+               redirectTo:"/",
+           })
+        });
+        app.controller("emplCtrl",["$scope","$rootScope",function ($scope,$rootScope) {
+            var search = window.location.search;
+            $scope.id = search.substring(1) - 1;
+            $scope.obj = employees[$scope.id];
+            $scope.htmlStr = "";
+            if ($scope.obj.managerName){
+                for (var i in employees){
+                    if ($scope.obj.managerName == employees[i].firstName + " " + employees[i].lastName){
+                        var j = parseInt(i) + 1;
+                        $scope.htmlStr += "<li><p>View Manager</p><p>" + $scope.obj.managerName + "</p><a href='?" + j + "#/data.html'><span><img src='img/next.svg' alt=''></span></a></li>"
+                    }
+                }
+            }
+            if ($scope.obj.reports != 0){
+                $scope.htmlStr += '<li><p>View Direct Reports</p><p>' + $scope.obj.reports + '</p><a href="?' + $scope.obj.firstName + "+" + $scope.obj.lastName + '#/reports.html"><span><img src="img/next.svg"></span></a></li>';
+            }
+            $scope.officePhone = $scope.obj.officePhone;
+            $scope.cellPhone = $scope.obj.cellPhone;
+            $scope.email = $scope.obj.email;
+            /*$scope.htmlStr += "<li><p>Call Office</p><p>" + $scope.obj.officePhone + "</p><a href='tel:15693487327'><span><img src='img/call.svg'></span></a></li><li><p>Call Cell</p><p>" + $scope.obj.cellPhone + "</p><a href='tel:15693487327'><span><img src='img/call.svg'></span></a></li><li><p>SMS</p><p>" + $scope.obj.cellPhone + "</p><a href='sms:15693487327'><span><img src='img/chat.svg'></span></a></li><li><p>Email</p><p>" + $scope.obj.email + "</p><span><img src='img/email.svg'></span></li>";*/
+
+        }]);
+        app.controller("repCtrl",["$scope","$rootScope",function ($scope,$rootScope) {
+            var search = window.location.search.substring(1).replace("+"," ");
+            $scope.name = search;
+        }])
+</script>
+</html>

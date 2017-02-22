@@ -1,0 +1,25 @@
+<div>
+    <header>
+        <span onclick="history.go(-1)">
+            <img src="img/back_light.svg" alt="">
+        </span>
+        Employees
+    </header>
+    <div class="content">
+        <div class="message">
+            <div class="ico">
+                <img src="{{obj.pic}}" alt="">
+            </div>
+            <p class="name">{{obj.firstName}} {{obj.lastName}}</p>
+            <p>{{obj.title}}</p>
+            <p>{{obj.city}}</p>
+        </div>
+        <ul class="data" ng-bind-html="htmlStr"></ul>
+        <ul class="data">
+            <li><a href='tel:15693487327'><p>Call Office</p><p>{{officePhone}}</p><span><img src='img/call.svg'></span></a></li>
+            <li><a href='tel:15693487327'><p>Call Cell</p><p>{{cellPhone}}</p><span><img src='img/call.svg'></span></a></li>
+            <li><a href='sms:15693487327'><p>SMS</p><p>{{cellPhone}}</p><span><img src='img/chat.svg'></span></a></li>
+            <li><p>Email</p><p>{{email}}</p><span><img src='img/email.svg'></span></li>
+        </ul>
+    </div>
+</div>
